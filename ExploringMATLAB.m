@@ -103,3 +103,39 @@ title('Original Image');
 subplot(1,2,2);
 imagesc(theFT);
 title('Fourier Spectrum Image');
+
+%% Part 5 
+
+img5 = imread('073.tif');
+img5Gray = rgb2gray(img5);
+figure;
+imshow(img5Gray);
+title('Original Image');
+
+% Fourier transform
+F5 = fft2(img5Gray);
+F5_2 = log(abs(F5));
+F5_3 = fftshift(F5_2);
+
+figure;
+imagesc(F5_3);
+title('Fourier Spectrum Image');
+
+%Inverse Fourier Transform
+invF = abs(ifft(F5_3));
+
+% Scale the Inverse Fourier values from 0 to 1 
+I = (invF - min(invF(:))) / (max(invF(:)) - min(invF(:)));
+I2 = im2uint8(I);
+
+subImg = imsubtract(img5Gray,I2);
+figure; 
+imshow(subImg);
+title('Subtracted Image');
+
+% image8Bit = uint8(255 * mat2gray(invF));
+% figure; imshow(image8Bit);
+% 
+% subImg = imsubtract(img5Gray,image8Bit);
+% figure; 
+% imshow(subImg);
