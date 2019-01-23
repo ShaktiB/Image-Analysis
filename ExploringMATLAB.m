@@ -1,3 +1,6 @@
+clear all 
+close all 
+
 %% Part 1: Gray-Level Scaling and Histogram Equalization 
 
 img = imread('Mammo CC P1.tif');
@@ -17,7 +20,7 @@ imshow(img_gray);
 title('Gray-Level Scaling')
 subplot(3,1,3);
 imshow(img_hist);
-title('Histogram Equalization')
+title('Histogram Equalization (on Grayscale Img)')
 
 % Histrogram of the images before/after equalization 
 figure;
