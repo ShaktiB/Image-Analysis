@@ -26,8 +26,10 @@ title('Histogram Equalization (on Grayscale Img)')
 figure;
 subplot(1,2,1);
 imhist(img);
+title('Histogram of Original Mammogram');
 subplot(1,2,2);
 imhist(img_hist);
+title('Histogram after Equalization');
 
 
 %% Part 2: Applying Gray-Level Scaling and Hist. Equalization on Brain MRI 
@@ -45,14 +47,16 @@ imshow(img_gray2);
 title('Gray-Level Scaling')
 subplot(3,1,3);
 imshow(img_hist2);
-title('Histogram Equalization')
+title('Histogram Equalization (on Grayscale Img)')
 
 % Histrogram of the images before/after equalization 
 figure;
 subplot(1,2,1);
 imhist(img2);
+title('Histogram of Original Brain MRI Image');
 subplot(1,2,2);
 imhist(img_hist2);
+title('Histogram after Equalization');
 
 %% Part 3: 
 
