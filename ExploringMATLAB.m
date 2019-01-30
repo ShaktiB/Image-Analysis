@@ -94,7 +94,11 @@ title('Color Map: Jet');
 
 img4 = zeros(256,256); % Creating a 256*256 array of 0s
 img4(128:129,128:129) = 255; % Setting the middle 2x2 pixels to = 255 
-theFT = abs(fft2(img4)); 
+% img42(120:125,120:125) = 255; % Setting the middle 2x2 pixels to = 255 
+% theFT = abs(fft2(img4)); 
+% theFT2 = abs(fft2(img42)); 
+theFT = fftshift(log(abs(fft2(img4)))); 
+% theFT2 = fftshift(log(abs(fft2(img42)))); 
 
 figure;
 subplot(1,2,1);
@@ -103,6 +107,12 @@ title('Original Image');
 subplot(1,2,2);
 imagesc(theFT);
 title('Fourier Spectrum Image');
+% subplot(2,2,3);
+% imshow(img42);
+% title('Original Image 2');
+% subplot(2,2,4);
+% imagesc(theFT2);
+% title('Fourier Spectrum Image');
 
 %% Part 5
 img5 = imread('070.tif');
