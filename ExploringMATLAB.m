@@ -149,3 +149,32 @@ subImg = imsubtract(img5gray,invF);
 figure; 
 imshow(subImg);
 title('Subtracted Image');
+
+%% Example
+
+imgx = zeros(256,256); % Creating a 256*256 array of 0s
+imgx(128:129,128:129) = 255; % Setting the middle 2x2 pixels to = 255 
+
+imgy = zeros(256,256); % Creating a 256*256 array of 0s
+imgy(160:161,160:161) = 255; % Setting the middle 2x2 pixels to = 255 
+
+theFTx = fftshift(log(abs(fft2(imgx))));
+theFTy = fftshift(log(abs(fft2(imgy))));
+
+figure;
+subplot(2,2,1);
+imshow(imgx);
+title('Original Image 1');
+subplot(2,2,2);
+imshow(imgy);
+title('Original Image 2');
+
+subplot(2,2,3);
+imagesc(theFTx);
+colormap(gray);
+title('Fourier Transform Image 1');
+
+subplot(2,2,4);
+imagesc(theFTy);
+colormap(gray);
+title('Fourier Transform Image 2');
